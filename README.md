@@ -37,7 +37,6 @@ A simple program that converts text to morse code.
 
 ## Testing
 
--   ES Lint
 -   CodeQL
 -   Jest
 
