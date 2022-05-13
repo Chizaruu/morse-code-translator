@@ -4,8 +4,7 @@ A simple program that converts text to morse code.
 
 ## Description
 
-After the user enters a word or sentence, the program will translate it to morse code.
-The program will also translate morse code back to text after the user enables the "reverse" mode by pressing the Change Button.
+A program that was developed to help people learn morse code as well as test their understanding. The program is simple and easy to use. It is also easy to use in a classroom environment as well as in a home environment.
 
 ---
 
