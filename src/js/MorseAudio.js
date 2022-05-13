@@ -43,7 +43,7 @@ export class MorseAudio {
 
     playString(t, w) {
         for (var i = 0; i < w.length; i++) {
-            t = this.playChar(t, morseCode[w[i]]);
+            t = this.playChar(t, morseCode[w[i].toLowerCase()]);
             t += this._dot;
 
             if (w[i] !== " ") t += this._dot;

@@ -2,12 +2,15 @@ import { morseCode } from "./morseCode";
 
 export class Translator {
     translate = (input, reverse) => {
-        if (this.isValidMorse(input)) {
+        input = input.toLowerCase();
+        if (this.isValidMorse(input) && input !== "") {
             return !reverse
                 ? this.englishToMorse(input)
                 : this.morseToEnglish(input);
         } else if (input.length > 0) {
             return "Invalid input (unrecognized character)";
+        } else {
+            return "";
         }
     };
 
@@ -15,8 +18,7 @@ export class Translator {
         input
             .split("")
             .reduce(
-                (word, letter) =>
-                    (word += (morseCode[letter.toLowerCase()] || "") + " "),
+                (word, letter) => (word += (morseCode[letter] || "") + " "),
                 ""
             )
             .trim();

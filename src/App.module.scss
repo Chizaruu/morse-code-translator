@@ -1,0 +1,22 @@
+@use "./scss/typography";
+@use "./scss/mixins" as m;
+@use "./scss/palette" as p;
+@use "./scss/button";
+@use "./scss/header";
+@use "./scss/main";
+@use "./scss/footer";
+
+.App {
+    margin: 0;
+    padding: 0;
+
+    @include m.light {
+        color: map-get(p.$dark-theme-font-colors, primary);
+        background-color: map-get(p.$light-theme-colors, secondary);
+    }
+
+    @include m.dark {
+        background-color: map-get(p.$dark-theme-colors, secondary);
+        color: map-get(p.$light-theme-font-colors, primary);
+    }
+}
