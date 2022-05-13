@@ -61,4 +61,4 @@ A simple program that converts text to morse code.
 
 Landing Page
 
-![wellme1](https://user-images.githubusercontent.com/73642462/110450524-62fe5c80-8117-11eb-86db-562893e427b4.PNG)
+![landing]("assets/landing.png")
