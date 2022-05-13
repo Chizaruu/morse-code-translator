@@ -27,12 +27,19 @@ A program that was developed to help people learn morse code as well as test the
 -   Allows the user a audio feedback of the morse code.
 -   Deployed to Github Pages using Actions.
 
+## Improvements to Come
+
+-   Add better visual representation of the morse code.
+-   Add a sound effect when the user inputs a letter.
+-   Improve SCSS styling and implementation.
+
 ## Front End Tech
 
 -   JavaScript
 -   HTML
 -   SCSS
 -   React
+-   Node.js
 
 ## Testing
 
