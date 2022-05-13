@@ -1,20 +1,22 @@
 import { morseCode } from "./morseCode";
 
 export class Translator {
-    constructor() {
-        this.morseCode = morseCode;
-    }
-
-    translate = (input, reverse) =>
-        !reverse ? this.englishToMorse(input) : this.morseToEnglish(input);
+    translate = (input, reverse) => {
+        if (this.isValidMorse(input)) {
+            return !reverse
+                ? this.englishToMorse(input)
+                : this.morseToEnglish(input);
+        } else if (input.length > 0) {
+            return "Invalid input (unrecognized character)";
+        }
+    };
 
     englishToMorse = (input) =>
         input
             .split("")
             .reduce(
                 (word, letter) =>
-                    (word +=
-                        (this.morseCode[letter.toLowerCase()] || "") + " "),
+                    (word += (morseCode[letter.toLowerCase()] || "") + " "),
                 ""
             )
             .trim();
@@ -24,9 +26,20 @@ export class Translator {
             .split(" ")
             .reduce(
                 (word, morse) =>
-                    (word += Object.keys(this.morseCode).find(
-                        (letter) => this.morseCode[letter] === morse
+                    (word += Object.keys(morseCode).find(
+                        (letter) => morseCode[letter] === morse
                     )),
                 ""
             );
+
+    isValidMorse = (input) => {
+        const morse = input.split("");
+
+        for (let i in morse) {
+            if (!morseCode[morse[i]]) {
+                return false;
+            }
+        }
+        return true;
+    };
 }

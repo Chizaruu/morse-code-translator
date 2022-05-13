@@ -1,23 +1,30 @@
 import { useState, useEffect } from "react";
 import { Translator } from "./js/Translator";
+import { MorseAudio } from "./js/MorseAudio";
 
 function App() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [reverse, setReverse] = useState(false);
-    const [translatorInstance] = useState(new Translator());
 
-    const handleInput = (e) => {
+    function handleInput(e) {
         setInput(e.target.value);
-    };
+    }
 
-    const handleReverse = () => {
+    function handleReverse() {
         setReverse(!reverse);
-    };
+    }
+
+    function handlePlay() {
+        const audioCtx = new AudioContext();
+        const morseAudio = new MorseAudio(audioCtx);
+        morseAudio.connect(audioCtx.destination);
+        morseAudio.playString(0, reverse ? output : input);
+    }
 
     useEffect(() => {
-        setOutput(translatorInstance.translate(input, reverse));
-    }, [input, reverse, translatorInstance]);
+        setOutput(new Translator().translate(input, reverse));
+    }, [input, reverse]);
 
     return (
         <div>
@@ -25,10 +32,13 @@ function App() {
                 <h1>Morse Code Translator</h1>
             </header>
             <main>
-                <input type="text" id="input" onChange={handleInput} />
-                <input type="checkbox" id="reverse" onChange={handleReverse} />
+                <label htmlFor="input"> Input </label>
+                <input type="textarea" id="input" onChange={handleInput} />
                 <label htmlFor="reverse">Reverse</label>
-                <button id="play">Play Audio</button>
+                <input type="checkbox" id="reverse" onChange={handleReverse} />
+                <button id="play" onClick={handlePlay}>
+                    Play
+                </button>
                 <div id="output">{output}</div>
             </main>
         </div>

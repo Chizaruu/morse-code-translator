@@ -1,30 +1,39 @@
 import { MorseAudio } from "./MorseAudio";
+import { AudioContext, registrar } from "standardized-audio-context-mock";
 
 describe("MorseAudio", () => {
+    let audioCtx;
+    let morseAudio;
+
+    afterEach(() => registrar.reset());
+
+    beforeEach(() => {
+        audioCtx = new AudioContext();
+        morseAudio = new MorseAudio(audioCtx);
+    });
+
     it("should be defined", () => {
         expect(MorseAudio).toBeDefined();
     });
+
     it("should connect to a target", () => {
-        const ac = new AudioContext();
-        const target = ac.createGain();
-        const morseAudio = new MorseAudio(ac);
+        const target = audioCtx.createGain();
+        const spy = jest.spyOn(morseAudio, "connect");
         morseAudio.connect(target);
-        expect(morseAudio._gain.connect).toHaveBeenCalledWith(target);
+        expect(spy).toHaveBeenCalledWith(target);
     });
     it("should play a character", () => {
-        const ac = new AudioContext();
-        const morseAudio = new MorseAudio(ac);
         const t = 0;
         const c = ".";
-        const t2 = morseAudio.playChar(t, c);
-        expect(t2).toBeGreaterThan(t);
+        const spy = jest.spyOn(morseAudio, "playChar");
+        morseAudio.playChar(t, c);
+        expect(spy).toHaveBeenCalled();
     });
     it("should play a string", () => {
-        const ac = new AudioContext();
-        const morseAudio = new MorseAudio(ac);
         const t = 0;
         const w = ".";
-        const t2 = morseAudio.playString(t, w);
-        expect(t2).toBeGreaterThan(t);
+        const spy = jest.spyOn(morseAudio, "playString");
+        morseAudio.playString(t, w);
+        expect(spy).toHaveBeenCalled();
     });
 });

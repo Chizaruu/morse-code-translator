@@ -4,6 +4,25 @@ describe("Translator", () => {
     it("should be defined", () => {
         expect(Translator).toBeDefined();
     });
+    it("should be a class", () => {
+        expect(typeof Translator).toBe("function");
+    });
+    it("should have a translate method", () => {
+        const translator = new Translator();
+        expect(translator.translate).toBeDefined();
+    });
+    it("should show invalid input if the input is not valid", () => {
+        const translator = new Translator();
+        expect(translator.translate("invalid`")).toBe(
+            "Invalid input (unrecognized character)"
+        );
+        expect(translator.translate("timT@ms$``")).toBe(
+            "Invalid input (unrecognized character)"
+        );
+        expect(translator.translate(">hi~")).toBe(
+            "Invalid input (unrecognized character)"
+        );
+    });
     it("should translate a word", () => {
         const translator = new Translator();
         const input = "hello";
