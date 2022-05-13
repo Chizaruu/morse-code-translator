@@ -61,4 +61,4 @@ A simple program that converts text to morse code.
 
 Landing Page
 
-![landing]("assets/landing.png")
+![landing](./public/images/landing.png)
