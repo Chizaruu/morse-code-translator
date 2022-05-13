@@ -12,10 +12,6 @@ function App() {
         setInput(e.target.value);
     }
 
-    function handleOutput(e) {
-        setOutput(e.target.value);
-    }
-
     function handleDirection() {
         SetDirection(direction === "Morse" ? "English" : "Morse");
 
