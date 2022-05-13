@@ -9,6 +9,7 @@ main {
     padding: 5px;
     border-radius: 5px;
     height: 75vh;
+    margin-top: 5vh;
     @include m.light {
         color: map-get(p.$light-theme-font-colors, primary);
     }

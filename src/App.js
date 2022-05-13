@@ -6,26 +6,41 @@ import styles from "./App.module.scss";
 function App() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
-    const [reverse, setReverse] = useState(false);
+    const [direction, SetDirection] = useState("Morse");
 
     function handleInput(e) {
         setInput(e.target.value);
     }
 
-    function handleReverse() {
-        setReverse(!reverse);
+    function handleOutput(e) {
+        setOutput(e.target.value);
+    }
+
+    function handleDirection() {
+        SetDirection(direction === "Morse" ? "English" : "Morse");
+
+        const newInput = output;
+        const newOutput = input;
+
+        setInput(newInput);
+        setOutput(newOutput);
     }
 
     function handlePlay() {
         const audioCtx = new AudioContext();
         const morseAudio = new MorseAudio(audioCtx);
         morseAudio.connect(audioCtx.destination);
-        morseAudio.playString(0, reverse ? output : input);
+        morseAudio.playString(0, direction === "Morse" ? output : input);
     }
 
     useEffect(() => {
-        setOutput(new Translator().translate(input, reverse));
-    }, [input, reverse]);
+        setOutput(
+            new Translator().translate(
+                input,
+                direction !== "Morse" ? true : false
+            )
+        );
+    }, [input, direction]);
 
     return (
         <div className={styles.App}>
@@ -38,7 +53,9 @@ function App() {
                 <label htmlFor="output"> Output </label>
                 <textarea id="output" readOnly value={output} />
                 <div>
-                    <button onClick={handleReverse}>Reverse</button>
+                    <button onClick={handleDirection}>
+                        Change to {direction}
+                    </button>
                     <button onClick={handlePlay}>Play</button>
                 </div>
             </main>
