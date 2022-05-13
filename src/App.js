@@ -26,7 +26,7 @@ function App() {
         const audioCtx = new AudioContext();
         const morseAudio = new MorseAudio(audioCtx);
         morseAudio.connect(audioCtx.destination);
-        morseAudio.playString(0, direction === "Morse" ? output : input);
+        morseAudio.playString(0, direction === "Morse" ? input : output);
     }
 
     useEffect(() => {
