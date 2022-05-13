@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/morse-code-translator/static/css/main.0c0e5a99.css",
-    "main.js": "/morse-code-translator/static/js/main.2f66d686.js",
+    "main.js": "/morse-code-translator/static/js/main.e8eaf53f.js",
     "static/js/787.42ee7613.chunk.js": "/morse-code-translator/static/js/787.42ee7613.chunk.js",
     "index.html": "/morse-code-translator/index.html",
     "main.0c0e5a99.css.map": "/morse-code-translator/static/css/main.0c0e5a99.css.map",
-    "main.2f66d686.js.map": "/morse-code-translator/static/js/main.2f66d686.js.map",
+    "main.e8eaf53f.js.map": "/morse-code-translator/static/js/main.e8eaf53f.js.map",
     "787.42ee7613.chunk.js.map": "/morse-code-translator/static/js/787.42ee7613.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c0e5a99.css",
-    "static/js/main.2f66d686.js"
+    "static/js/main.e8eaf53f.js"
   ]
 }
