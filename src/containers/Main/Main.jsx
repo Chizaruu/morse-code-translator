@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
-import { Translator } from "./js/Translator";
-import { MorseAudio } from "./js/MorseAudio";
+import { Translator } from "./../../js/Translator";
+import { MorseAudio } from "./../../js/MorseAudio";
 
 export function Main() {
     const [input, setInput] = useState("");
@@ -39,7 +39,7 @@ export function Main() {
     }, [input, direction]);
 
     return (
-        <main className={styles.main}>
+        <main className={styles}>
             <label htmlFor="input"> Input </label>
             <textarea value={input} id="input" onChange={handleInput} />
             <label htmlFor="output"> Output </label>
