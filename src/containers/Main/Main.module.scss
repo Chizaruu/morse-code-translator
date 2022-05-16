@@ -1,0 +1,52 @@
+@use "./../../scss/palette.module" as p;
+@use "./../../scss/mixins.module" as m;
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 43em;
+
+    textarea {
+        width: 25em;
+        height: 15em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        resize: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 60%;
+        height: 80%;
+    }
+}
+
+.buttons_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    height: 90%;
+
+    button {
+        margin-bottom: 2em;
+        width: 10em;
+        height: 3em;
+    }
+}
+
+.textarea_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+}
