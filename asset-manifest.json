@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/morse-code-translator/static/css/main.0c0e5a99.css",
-    "main.js": "/morse-code-translator/static/js/main.e8eaf53f.js",
+    "main.css": "/morse-code-translator/static/css/main.9aee1849.css",
+    "main.js": "/morse-code-translator/static/js/main.58ea93a7.js",
     "static/js/787.42ee7613.chunk.js": "/morse-code-translator/static/js/787.42ee7613.chunk.js",
+    "static/media/clouds.webp": "/morse-code-translator/static/media/clouds.c5536ef45bb9b0c1a2fb.webp",
+    "static/media/stars.webp": "/morse-code-translator/static/media/stars.65901ab8d2c9fe21a7a6.webp",
+    "static/media/twinkling.webp": "/morse-code-translator/static/media/twinkling.5ce2ef6c741b3ac59cbd.webp",
     "index.html": "/morse-code-translator/index.html",
-    "main.0c0e5a99.css.map": "/morse-code-translator/static/css/main.0c0e5a99.css.map",
-    "main.e8eaf53f.js.map": "/morse-code-translator/static/js/main.e8eaf53f.js.map",
+    "static/media/box.webp": "/morse-code-translator/static/media/box.9f5bd3c83be0d408b96c.webp",
+    "main.9aee1849.css.map": "/morse-code-translator/static/css/main.9aee1849.css.map",
+    "main.58ea93a7.js.map": "/morse-code-translator/static/js/main.58ea93a7.js.map",
     "787.42ee7613.chunk.js.map": "/morse-code-translator/static/js/787.42ee7613.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c0e5a99.css",
-    "static/js/main.e8eaf53f.js"
+    "static/css/main.9aee1849.css",
+    "static/js/main.58ea93a7.js"
   ]
 }
