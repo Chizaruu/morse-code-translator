@@ -40,13 +40,21 @@ export function Main() {
 
     return (
         <main className={styles}>
-            <label htmlFor="input"> Input </label>
-            <textarea value={input} id="input" onChange={handleInput} />
-            <label htmlFor="output"> Output </label>
-            <textarea id="output" readOnly value={output} />
             <div>
-                <button onClick={handleDirection}>Change to {direction}</button>
-                <button onClick={handlePlay}>Play</button>
+                <div className={styles.textarea_container}>
+                    <label htmlFor="input"> Input </label>
+                    <textarea value={input} id="input" onChange={handleInput} />
+                </div>
+                <div className={styles.buttons_container}>
+                    <button onClick={handleDirection}>
+                        Change to {direction}
+                    </button>
+                    <button onClick={handlePlay}>Play</button>
+                </div>
+                <div className={styles.textarea_container}>
+                    <label htmlFor="output"> Output </label>
+                    <textarea id="output" readOnly value={output} />
+                </div>
             </div>
         </main>
     );
