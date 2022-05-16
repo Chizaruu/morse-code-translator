@@ -42,17 +42,18 @@ export function Main() {
         <main className={styles}>
             <div>
                 <div className={styles.textarea_container}>
-                    <label htmlFor="input"> Input </label>
+                    <label htmlFor="input">
+                        Input ({direction !== "English" ? "English" : "Morse"})
+                    </label>
                     <textarea value={input} id="input" onChange={handleInput} />
                 </div>
                 <div className={styles.buttons_container}>
-                    <button onClick={handleDirection}>
-                        Change to {direction}
-                    </button>
+                    <h3>Currently Translating to {direction}</h3>
+                    <button onClick={handleDirection}>Switch Mode</button>
                     <button onClick={handlePlay}>Play</button>
                 </div>
                 <div className={styles.textarea_container}>
-                    <label htmlFor="output"> Output </label>
+                    <label htmlFor="output"> Output ({direction}) </label>
                     <textarea id="output" readOnly value={output} />
                 </div>
             </div>

@@ -32,11 +32,13 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 30%;
-    height: 70%;
+    width: 40%;
+    height: 90%;
 
     button {
         margin-bottom: 2em;
+        width: 10em;
+        height: 3em;
     }
 }
 
