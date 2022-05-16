@@ -58,7 +58,7 @@ function App() {
             <footer>
                 <p>
                     Made with <span title="Latvia!~">❤️</span> by Abdul-Kadir
-                    Coskun{" "}
+                    Coskun
                 </p>
             </footer>
         </div>
