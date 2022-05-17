@@ -6,54 +6,50 @@ import { MorseAudio } from "./../../js/MorseAudio";
 export function Main() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
-    const [direction, SetDirection] = useState("Morse");
+    const [isEnglish, setState] = useState(true);
 
     function handleInput(e) {
         setInput(e.target.value);
     }
 
-    function handleDirection() {
-        SetDirection(direction === "Morse" ? "English" : "Morse");
-
-        const newInput = output;
-        const newOutput = input;
-
-        setInput(newInput);
-        setOutput(newOutput);
-    }
-
     function handlePlay() {
-        const audioCtx = new AudioContext();
-        const morseAudio = new MorseAudio(audioCtx);
-        morseAudio.connect(audioCtx.destination);
-        morseAudio.playString(0, direction === "Morse" ? input : output);
+        if (input.length > 0) {
+            const audioCtx = new AudioContext();
+            const morseAudio = new MorseAudio(audioCtx);
+            morseAudio.connect(audioCtx.destination);
+            morseAudio.playString(0, isEnglish ? output : input);
+        }
     }
-
     useEffect(() => {
-        setOutput(
-            new Translator().translate(
-                input,
-                direction !== "Morse" ? true : false
-            )
-        );
-    }, [input, direction]);
+        if (input.length > 0)
+            if (input.match(/(^[a-zA-Z0-9])/)) setState(true);
+            else setState(false);
+        setOutput(new Translator().translate(input, isEnglish));
+    }, [input, isEnglish]);
 
     return (
         <main className={styles}>
             <div>
                 <div className={styles.textarea_container}>
                     <label htmlFor="input">
-                        Input ({direction !== "English" ? "English" : "Morse"})
+                        Input ({isEnglish ? "English" : "Morse"})
                     </label>
                     <textarea value={input} id="input" onChange={handleInput} />
                 </div>
                 <div className={styles.buttons_container}>
-                    <h3>Currently Translating to {direction}</h3>
-                    <button onClick={handleDirection}>Switch Mode</button>
+                    <h3>
+                        {input !== ""
+                            ? `Currently Translating to ${
+                                  isEnglish ? "Morse" : "English"
+                              }`
+                            : "~ Input a string to translate ~"}
+                    </h3>
                     <button onClick={handlePlay}>Play</button>
                 </div>
                 <div className={styles.textarea_container}>
-                    <label htmlFor="output"> Output ({direction}) </label>
+                    <label htmlFor="output">
+                        Output ({isEnglish ? "Morse" : "English"})
+                    </label>
                     <textarea id="output" readOnly value={output} />
                 </div>
             </div>
