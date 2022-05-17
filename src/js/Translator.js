@@ -1,10 +1,10 @@
 import { morseCode } from "./morseCode";
 
 export class Translator {
-    translate = (input, reverse) => {
+    translate = (input, isEnglish) => {
         input = input.toLowerCase();
         if (this.isValidMorse(input) && input !== "") {
-            return !reverse
+            return isEnglish
                 ? this.englishToMorse(input)
                 : this.morseToEnglish(input);
         } else if (input.length > 0) {
