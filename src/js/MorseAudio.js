@@ -17,9 +17,6 @@ export class MorseAudio {
         this._gain.connect(ac.destination);
     }
 
-    connect(target) {
-        return this._gain.connect(target);
-    }
     playChar(t, c) {
         for (var i = 0; i < c.length; i++) {
             switch (c[i]) {
