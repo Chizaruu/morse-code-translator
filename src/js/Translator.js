@@ -4,9 +4,11 @@ export class Translator {
     translate = (input, isEnglish) => {
         input = input.toLowerCase();
         if (this.isValidMorse(input) && input !== "") {
-            return isEnglish
+            let translation = isEnglish
                 ? this.englishToMorse(input)
                 : this.morseToEnglish(input);
+            return (translation =
+                translation.charAt(0).toUpperCase() + translation.slice(1));
         } else if (input.length > 0) {
             return "Invalid input (unrecognized character)";
         } else {
